@@ -34,13 +34,17 @@ El codigo esta organizado de forma modular:
 
 Para compilar el proyecto y generar el ejecutable, ejecute el siguiente comando en la carpeta del proyecto:
 
+```bash
 g++ -o rutas_turisticas.exe main.cpp Grafo.cpp Algoritmos.cpp Datos.cpp
+```
 
 ## Ejecucion
 
 Una vez compilado, puede iniciar el programa con el siguiente comando:
 
+```powershell
 .\rutas_turisticas.exe
+```
 
 ## Manual de Uso
 
