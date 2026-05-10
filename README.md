@@ -1,4 +1,4 @@
-# Sistema de Rutas Turisticas - Colombia
+# Sistema de Rutas Turisticas - Colombia 
 
 Este proyecto es una aplicacion de consola desarrollada en C++ que permite gestionar y optimizar rutas entre 50 destinos turisticos de Colombia. Utiliza algoritmos de grafos para encontrar caminos optimos y generar recomendaciones personalizadas basadas en la satisfaccion del usuario y la eficiencia del viaje.
 
@@ -30,7 +30,7 @@ El codigo esta organizado de forma modular:
 - Compilador de C++ (como GCC/MinGW o Clang).
 - Terminal o consola de comandos.
 
-## Compilacion
+## Compilacion si no es en onlinegdb
 
 Para compilar el proyecto y generar el ejecutable, ejecute el siguiente comando en la carpeta del proyecto:
 
