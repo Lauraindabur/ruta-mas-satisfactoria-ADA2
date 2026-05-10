@@ -1,12 +1,12 @@
 #include "Grafo.h"
 
-/* ============================================================
-   INICIALIZACIÓN DE DATOS (50 DESTINOS COLOMBIANOS)
+/* ¿
+   INICIALIZACIÓN DE DATOS con 50 DESTINOS 
    Cada destino tiene: id, nombre, altitud, temperatura,
    tipo y satisfacción.
    Luego se definen las conexiones (aristas) con distancias
    reales en km, y el peso se calcula con la fórmula compuesta.
-   ============================================================ */
+    */
 
 void inicializarDatos(Grafo& grafo) {
 

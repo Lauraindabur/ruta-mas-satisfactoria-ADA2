@@ -1,18 +1,14 @@
 #include "Grafo.h"
 
-/* ============================================================
-   CONSTRUCTOR — Inicializa el grafo vacío
-   ============================================================ */
-
 Grafo::Grafo() : numDestinos(0) {}
 
-/* ============================================================
-   CÁLCULO DEL PESO DE UNA ARISTA
-   Fórmula:  peso = distancia*0.5 + costo*0.3 + (5.0-sat)*20.0
-   - distancia: penaliza rutas largas
-   - costo (distancia*1.2): penaliza rutas costosas
-   - (5.0 - satisfaccion): penaliza destinos poco valorados
-   ============================================================ */
+/* 
+   PESO DE UNA ARISTA
+   peso = distancia*0.5 + costo*0.3 + (5.0-sat)*20.0
+    distancia: penaliza rutas largas
+    costo (distancia*1.2): penaliza rutas costosas
+    (5.0 - satisfaccion): penaliza destinos poco valorados
+*/
 
 float Grafo::calcularPeso(int idDest, float distancia) {
     float costo = distancia * 1.2f;
@@ -20,10 +16,10 @@ float Grafo::calcularPeso(int idDest, float distancia) {
     return distancia * 0.5f + costo * 0.3f + (5.0f - sat) * 20.0f;
 }
 
-/* ============================================================
+/* 
    AGREGAR ARISTA BIDIRECCIONAL
-   Grafo no dirigido: se agrega en ambas direcciones.
-   ============================================================ */
+   -> Grafo no dirigido: se agrega en ambas direcciones.
+ */
 
 void Grafo::agregarArista(int origen, int dest, float peso) {
     Arista a1;

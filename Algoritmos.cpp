@@ -2,8 +2,6 @@
 
 /* ============================================================
    ALGORITMO DE DIJKSTRA
-   Encuentra el camino de menor peso desde inicio hacia todos
-   los demás nodos del grafo.
    Paso 1: Inicializar distancias en infinito y previo en -1.
    Paso 2: Encontrar nodo no visitado con menor distancia (u).
    Paso 3: Relajar aristas de u hacia sus vecinos.
@@ -29,7 +27,6 @@ void dijkstra(Grafo& grafo, int inicio,
         if (u == -1 || distancias[u] == INF) break;
         visitado[u] = true;
 
-        // Relajar aristas del nodo u
         for (int j = 0; j < (int)grafo.adyacencia[u].size(); j++) {
             int   v         = grafo.adyacencia[u][j].destino;
             float nuevaDist = distancias[u] + grafo.adyacencia[u][j].peso;
@@ -41,11 +38,11 @@ void dijkstra(Grafo& grafo, int inicio,
     }
 }
 
-/* ============================================================
+/* 
    RECONSTRUCCIÓN DE RUTA
    Recorre recursivamente previo[] para imprimir el camino
    desde el origen hasta el destino indicado.
-   ============================================================ */
+ */
 
 void imprimirRuta(Grafo& grafo, vector<int>& previo, int destino) {
     if (previo[destino] == -1) {
@@ -56,14 +53,14 @@ void imprimirRuta(Grafo& grafo, vector<int>& previo, int destino) {
     cout << " -> " << grafo.destinos[destino].nombre;
 }
 
-/* ============================================================
-   RECOMENDACIÓN DE TOUR (5 DESTINOS)
+/*
+   RECOMENDACIÓN DE TOUR (paso a paso el algoritmo)
    1. Ejecutar Dijkstra desde el favorito.
    2. Calcular ratio satisfaccion / peso_minimo.
    3. Ordenar por ratio descendente.
    4. Seleccionar 5 con variedad de tipo (max 2 iguales).
    5. Reconstruir y mostrar la ruta de cada uno.
-   ============================================================ */
+ */
 
 void recomendarTour(Grafo& grafo, int idFavorito) {
     int n = grafo.numDestinos;
@@ -81,7 +78,6 @@ void recomendarTour(Grafo& grafo, int idFavorito) {
             ratio[i] = grafo.destinos[i].satisfaccion / distancias[i];
     }
 
-    // Ordenar índices por ratio descendente (selection sort)
     vector<int> indices(n);
     for (int i = 0; i < n; i++) indices[i] = i;
     for (int i = 0; i < n - 1; i++) {
@@ -97,7 +93,6 @@ void recomendarTour(Grafo& grafo, int idFavorito) {
     cout << "\n=== TOUR RECOMENDADO DESDE "
          << grafo.destinos[idFavorito].nombre << " ===" << endl;
 
-    // Seleccionar 5 destinos con variedad de tipo
     vector<string> tiposUsados;
     int mostrados = 0;
 
@@ -105,7 +100,7 @@ void recomendarTour(Grafo& grafo, int idFavorito) {
         int idx = indices[i];
         if (ratio[idx] <= 0) continue;
 
-        // Verificar si ya hay 2 del mismo tipo
+
         int cuentaTipo = 0;
         for (int t = 0; t < (int)tiposUsados.size(); t++) {
             if (tiposUsados[t] == grafo.destinos[idx].tipo)
@@ -116,7 +111,6 @@ void recomendarTour(Grafo& grafo, int idFavorito) {
         tiposUsados.push_back(grafo.destinos[idx].tipo);
         mostrados++;
 
-        // Mostrar destino y reconstruir su ruta
         string nombre = grafo.destinos[idx].nombre;
         cout << "\n" << mostrados << ". " << nombre;
         for (int p = (int)nombre.size(); p < 22; p++) cout << " ";
@@ -133,9 +127,7 @@ void recomendarTour(Grafo& grafo, int idFavorito) {
         cout << "No se encontraron destinos recomendados desde este punto." << endl;
 }
 
-/* ============================================================
-   MOSTRAR TODOS LOS DESTINOS (tabla formateada)
-   ============================================================ */
+
 
 void mostrarDestinos(Grafo& grafo) {
     cout << endl;
@@ -160,10 +152,10 @@ void mostrarDestinos(Grafo& grafo) {
     }
 }
 
-/* ============================================================
+/* 
    RUTA ÓPTIMA ENTRE DOS PUNTOS
-   Solicita IDs, ejecuta Dijkstra, muestra camino y peso.
-   ============================================================ */
+   Solicita los ids, ejecuta Dijkstra, muestra camino y peso.
+ */
 
 void rutaOptima(Grafo& grafo) {
     int origen, dest;

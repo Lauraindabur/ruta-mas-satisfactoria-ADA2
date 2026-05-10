@@ -1,9 +1,9 @@
 #include "Grafo.h"
 
-/* ============================================================
+/* 
    PUNTO DE ENTRADA — MENÚ PRINCIPAL
    Crea el grafo, carga los datos y ejecuta el bucle del menú.
-   ============================================================ */
+*/
 
 int main() {
     Grafo grafo;
